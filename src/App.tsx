@@ -1,26 +1,44 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, {ChangeEvent} from 'react';
 import './App.css';
 
+interface Item {
+    name: string,
+    key: number | null,
+}
+
 const App: React.FC = () => {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    const [state, setState] = React.useState<Item>({name: '', key: null});
+    const [items, setItems] = React.useState<Item[]>([]);
+
+    const onChangeTodo = (e: ChangeEvent<HTMLInputElement>) => {
+        setState({
+            name: e.target.value,
+            key: Date.now()
+        })
+    };
+
+    return (
+        <div className="App">
+            <form id="to-do-form">
+                <input type="text"
+                       placeholder="Enter Text"
+                       value={state.name}
+                       onChange={onChangeTodo}
+                />
+                <button onClick={e => {
+                    e.preventDefault();
+                    setItems([...items, state])
+                }}>
+                    Add
+                </button>
+            </form>
+            <div id="to-do-list">
+                <ul>
+                </ul>
+            </div>
+        </div>
+
+    );
 }
 
 export default App;
