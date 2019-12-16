@@ -1,42 +1,78 @@
 body {
-    background-color: #9266ff;
+  background-color: #9266ff;
 }
 
 .App {
-    background-color: #3f3160;
-    min-height: 500px;
-    width: 400px;
-    margin: 40px auto;
-    text-align: center;
+  background-color: #3f3160;
+  min-height: 500px;
+  width: 400px;
+  margin: 40px auto;
+  text-align: center;
 }
 
 #to-do-form input {
-    background-color: rgb(27, 112, 137);
-    border: 0;
-    width: 200px;
-    height: 50px;
-    padding: 0 20px;
-    margin: 20px;
-    font-size: 18px;
-    border-radius: 10px;
-    color: #fff;
+  background-color: rgb(27, 112, 137);
+  border: 0;
+  width: 200px;
+  height: 50px;
+  padding: 0 20px;
+  margin: 20px;
+  font-size: 18px;
+  border-radius: 10px;
+  color: #fff;
 }
 
 #to-do-form input::placeholder {
-    color: rgba(255, 255, 255, 0.5);
+  color: rgba(255, 255, 255, 0.5);
 }
 
 #to-do-form input:focus {
-    outline: none;
+  outline: none;
 }
 
 #to-do-form button {
-    height: 50px;
-    width: 80px;
-    border-radius: 5px;
-    border: 0;
-    background-color: rgb(202, 156, 24);
+  height: 50px;
+  width: 80px;
+  border-radius: 5px;
+  border: 0;
+  background-color: rgb(202, 156, 24);
+  cursor: pointer;
+  font-weight: bolder;
+  color: #fff;
+}
+
+#to-do-list .item-list {
+  list-style: none;
+  padding: 20px;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+#to-do-list .item {
+  list-style: none;
+  color: #fff;
+  width: 300px;
+  height: 50px;
+  margin: 20px auto;
+  border-radius: 5px;
+  background-color: #bf07ac;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 0 0 10px;
+  box-sizing: border-box;
+}
+
+#to-do-list .item>span{
     cursor: pointer;
-    font-weight: bolder;
-    color: #fff;
+    transition:0.5s;
+    height:100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding:0 10px;
+    border-radius: 5px;
+}
+#to-do-list .item>span:hover{
+    background-color: darkred;
 }
